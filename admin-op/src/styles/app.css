@@ -1,0 +1,24 @@
+:root {
+  --primario: #A69586;
+  --secundario: #736355;
+  --alterno:#8C8627;
+  --blanco: white;
+  --negro: black;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  background-color: var(--primario);
+  margin: 0;
+  padding: 0;
+}
+/*# sourceMappingURL=app.css.map */
