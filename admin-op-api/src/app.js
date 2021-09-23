@@ -10,7 +10,10 @@ app.use(morgan('dev'))
 app.get('/',(req,res) => {
     res.json('Poyecto de control de operaciones')
 })
+
+app.use('/auth', require('./routes/auth'))
 app.use('/accounts', require('./routes/accounts'))
 app.use('/users', require('./routes/users'))
+
 
 module.exports = app;
