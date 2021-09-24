@@ -5,25 +5,25 @@ const secret = require('../config')
 
 module.exports = {
 
-    singIn(data){
+   async singIn(data){
+        let { email, password } = data
+        const userFound = await users.findOne({ email })
+        
+        if(!userFound) return false
 
-
-        return 'sing in user'
+        if(userFound.password != password) return false
+        
+        return true
     },
 
     async signUp(data){
-        let { name, email, password, rol } = data
-
-        const newUser = new users({
+        let { name, email, role, password } = data
+        let newUser = await users.create({
             name,
             email,
-            password: await bcrypt.hash(password, 10)
+            role,
+            password
         })
-
-        const token = jwt.sign({id: newUser._id},secret.SECRET, {
-            expiresIn:86400
-        })
-
-        return token
+        return newUser
     }
 }

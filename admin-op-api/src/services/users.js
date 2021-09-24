@@ -7,17 +7,6 @@ module.exports = {
         return allUsers
     },
 
-    async createUser(data){
-        let { name, email, role, password } = data
-        let newUser = await users.create({
-            name,
-            email,
-            role,
-            password
-        })
-        return newUser
-    },
-
     async getUserById(id){
         let user = await users.findById(id.id)
         return user

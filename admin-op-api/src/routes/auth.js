@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 const auth = require('../middlewares/auth')
 
-router.post('/singin', (req, res) => {
-    res.json(auth.singIn(req.body))
+router.post('/singin', async (req, res) => {
+    let token = await auth.singIn(req.body)
+    res.json(token)
 })
 
 router.post('/singup', async (req, res) => {

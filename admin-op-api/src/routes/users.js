@@ -8,11 +8,6 @@ router.get('/', async (req, res) => {
     return res.json(users)
 })
 
-router.post('/', async(req, res) => {
-    let users = await usersService.createUser(req.body)
-    return res.json(users)
-})
-
 router.get('/:id', async (req, res) => {
     let id = req.params
     let user = await usersService.getUserById(id)
