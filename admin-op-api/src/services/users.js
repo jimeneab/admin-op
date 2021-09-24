@@ -2,23 +2,41 @@ const users = require('../models/users')
 
 module.exports = {
 
-    getAll(){
-        return 'get all users service'
+    async getAll(){
+        let allUsers = await users.find()
+        return allUsers
     },
 
-    createUser(){
-        return 'creating user'
+    async createUser(data){
+        let { name, email, role, password } = data
+        let newUser = await users.create({
+            name,
+            email,
+            role,
+            password
+        })
+        return newUser
     },
 
-    getUserById(id){
-        return `Getting ${id} user`
+    async getUserById(id){
+        let user = await users.findById(id.id)
+        return user
     },
 
-    updateUser(id, data){
-        return `Update ${id} user with ${data} changes`
+    async updateUser(data){
+        let id = data.params.id
+        let{ name, email, role } = data
+        let updatedUser = await users.findByIdAndUpdate(id,{
+            name,
+            email,
+            role
+        })
+        return updatedUser
     },
 
-    deleteUser(id){
-        return `Deleting user ${id}`
+    async deleteUser(data){
+        let id = data.params.id
+        let deletedUser = await users.findByIdAndDelete(id)
+        return deletedUser
     }
 }

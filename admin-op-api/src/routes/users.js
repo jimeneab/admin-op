@@ -3,32 +3,30 @@ const router = express.Router()
 
 const usersService = require('../services/users')
 
-router.get('/',(req, res) => {
-    let users = usersService.getAll()
+router.get('/', async (req, res) => {
+    let users = await usersService.getAll()
     return res.json(users)
 })
 
-router.post('/',(req, res) => {
-    let users = usersService.createUser()
+router.post('/', async(req, res) => {
+    let users = await usersService.createUser(req.body)
     return res.json(users)
 })
 
-router.get('/:id',(req, res) => {
+router.get('/:id', async (req, res) => {
     let id = req.params
-    let users = usersService.getUserById(id)
-    return res.json(users)
+    let user = await usersService.getUserById(id)
+    return res.json(user)
 })
 
-router.put('/:id',(req, res) => {
-    let id = req.params
-    let users = usersService.updateUser(id, req.body)
-    return res.json(users)
+router.put('/:id', async (req, res) => {
+    let updatedUser = await usersService.updateUser(req)
+    return res.json(updatedUser)
 })
 
-router.delete('/:id',(req, res) => {
-    let id = req.params
-    let users = usersService.deleteUser(id)
-    return res.json(users)
+router.delete('/:id', async (req, res) => {
+    let deletedUser = await usersService.deleteUser(req)
+    return res.json(deletedUser)
 })
 
 module.exports = router;
