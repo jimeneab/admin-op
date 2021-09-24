@@ -2,23 +2,43 @@ const accounts= require('../models/accounts')
 
 module.exports = {
 
-    getAll(){
-        return 'Get all accounts services'
+    async getAll(){
+        let allAccounts = await accounts.find()
+        return allAccounts
     },
 
-    createAccount(){
-        return 'Creting a new account'
+    async createAccount(data){
+        let { name, customerId, leaderId, teamId } = data
+        let newAccount = await accounts.create({
+            name,
+            customerId,
+            leaderId,
+            teamId
+        })
+        return newAccount
     },
 
-    getAccountById(id){
-        return ` getting ${id} account`
+    async getAccountById(data){
+        let id = data.params.id
+        let account = await accounts.findById(id)
+        return account
     },
 
-    updateAccount(id){
-        return `Account ${id} is updating`
+    async updateAccount(data){
+        let id = data.params.id
+        let { name, customerId, leaderId, teamId } = data.body
+        let updatedAccount =  await accounts.findByIdAndUpdate(id, {
+            name,
+            customerId,
+            leaderId,
+            teamId
+        })
+        return updatedAccount
     },
 
-    deleteAccount(id){
-        return `Deleting ${id} account`
+    async deleteAccount(data){
+        let id = data.params.id
+        let deletedAccount = await accounts.findByIdAndDelete(id)
+        return deletedAccount
     }
 }

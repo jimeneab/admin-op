@@ -2,15 +2,18 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
     name: String,
-    customer: String,
+    customerId:{
+        ref: "customers",
+        type: mongoose.Schema.Types.ObjectId
+    },
     leaderId: {
         ref: "users",
         type: mongoose.Schema.Types.ObjectId
     },
-    teams: [{
+    teamId: {
         ref: "teams",
         type: mongoose.Schema.Types.ObjectId
-    }]
+    }
 }, {
     timestamps: true,
     versionKey: false

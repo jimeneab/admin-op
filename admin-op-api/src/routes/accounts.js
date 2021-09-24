@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    res.json(accountsService.createAccount)
+    res.json(accountsService.createAccount())
 })
 
 router.get('/:id',(req,res) => {
