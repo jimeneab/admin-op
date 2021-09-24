@@ -13,6 +13,7 @@ app.get('/',(req,res) => {
 app.use('/auth', require('./routes/auth'))
 app.use('/accounts', require('./routes/accounts'))
 app.use('/users', require('./routes/users'))
+app.use('/roles', require('./routes/roles'))
 
 
 module.exports = app;
