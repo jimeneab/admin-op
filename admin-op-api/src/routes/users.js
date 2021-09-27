@@ -1,9 +1,10 @@
 const express = require('express');
+const { verifyToken, isAdmin } = require('../middlewares/verify');
 const router = express.Router()
 
 const usersService = require('../services/users')
 
-router.get('/', async (req, res) => {
+router.get('/', [verifyToken, isAdmin],async (req, res) => {
     let users = await usersService.getAll()
     return res.json(users)
 })

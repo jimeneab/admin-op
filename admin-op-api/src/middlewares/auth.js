@@ -9,13 +9,15 @@ module.exports = {
         let { email, password } = data
         const userFound = await users.findOne({ email })
         
-        if(!userFound) return false
+        if(!userFound) throw new Error('Invalid Data')
 
         const isPasswordValid = await bcrypt.compare(password, userFound.password)
 
-        if(!isPasswordValid) return false
+        if(!isPasswordValid) throw  new Error('Invalid Data')
+
+        const token = jwt.sign({ id: userFound._id }, secret.SECRET)
         
-        return true
+        return token
     },
 
     async signUp(data){
