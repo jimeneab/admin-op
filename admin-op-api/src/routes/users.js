@@ -4,7 +4,7 @@ const router = express.Router()
 
 const usersService = require('../services/users')
 
-router.get('/', [verifyToken, isAdmin],async (req, res) => {
+router.get('/', async (req, res) => {
     let users = await usersService.getAll()
     return res.json(users)
 })

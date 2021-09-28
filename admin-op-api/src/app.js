@@ -1,12 +1,18 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 
 const app = express();
 
-app.use(express.json())
-app.use(morgan('dev'))
+app.use(express.json());
+app.use(morgan('dev'));
 
-app.get('/',(req,res) => {
+const corsOptions = {
+    origin:'http://localhost:3000',
+    optionSuccessstatus: 200
+}
+
+app.get('/api', cors(corsOptions), (req,res) => {
     res.json('Poyecto de control de operaciones')
 })
 

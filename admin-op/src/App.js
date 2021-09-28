@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Navbar />
       <section className='content'>
-        <NewCustomer/>
+        <NewTeam/>
       </section>
       <Footer/>
     </div>
