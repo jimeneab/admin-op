@@ -50,7 +50,7 @@ module.exports = {
          })    
         }        
     },
-    isUser(req,res,next){
+    async isUser(req,res,next){
         try {
             const token = req.headers.authorization
             const payloadDecoded = jwt.verify(token, secret.SECRET)
@@ -71,7 +71,7 @@ module.exports = {
          })    
         }     
     },
-    isSuperUser(req,res,next){
+    async isSuperUser(req,res,next){
         try {
             const token = req.headers.authorization
             const payloadDecoded = jwt.verify(token, secret.SECRET)

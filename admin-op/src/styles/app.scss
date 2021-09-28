@@ -6,6 +6,8 @@
     --negro: black;
 }
 
+html { font-size: 62.5%; } 
+
 html {
     box-sizing: border-box;
   }
@@ -17,4 +19,71 @@ body{
     background-color: var(--primario);
     margin: 0;
     padding: 0
+}
+
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.content{
+  text-align: center;
+}
+
+.navbar{
+  width: 100%;
+  height: 6rem;
+  background-color: var(--secundario);
+  img{
+    border-radius: 0.5rem;
+    max-height:6rem ;
+  }
+}
+
+.footer{
+  background-color: var(--secundario);
+  height: 20rem;
+  img{
+    max-width: 12rem;
+    border-radius: 0.5rem
+  }
+  li{
+    font-size: 1.2rem;
+  }
+  strong{
+    font-size: medium;
+  }
+}
+
+form{
+  fieldset{
+    border-radius: 1rem;
+    border: 2px solid var(--alterno);
+  }
+  legend{
+    font-size: medium;
+    color: var(--secundario)
+  }
+  label{
+    font-size: medium;
+    color: var(--blanco);
+    padding: 0.5rem 0;
+  }
+  input{
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    padding: 0.5rem;
+  }
+  select{
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+  }
 }

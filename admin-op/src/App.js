@@ -1,11 +1,21 @@
 import './styles/app.css'
+import './styles/components.css'
+import Login from './pages/Login';
+import Navbar from './pages/Navbar';
+import Footer from './pages/Footer';
+import Singup from './pages/Singup';
+import NewAccount from './pages/NewAccount';
+import NewTeam from './pages/NewTeam';
+import NewCustomer from './pages/NewCustomer'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Pagina de adminitracion de operaciones</h1>
-      </header>
+      <Navbar />
+      <section className='content'>
+        <NewCustomer/>
+      </section>
+      <Footer/>
     </div>
   );
 }

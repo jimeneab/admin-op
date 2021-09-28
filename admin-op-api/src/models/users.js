@@ -2,6 +2,15 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
     name: String,
+    english:{
+        type: String
+    },
+    technologies:{
+        type:String
+    },
+    cv:{
+        type:String
+    },
     email: {
         type: String,
         minlength: 5,
