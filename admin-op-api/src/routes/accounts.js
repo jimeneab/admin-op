@@ -8,8 +8,9 @@ router.get('/', (req, res) => {
     res.json(accounts)
 })
 
-router.post('/', (req, res) => {
-    res.json(accountsService.createAccount())
+router.post('/', async (req, res) => {
+    let newAccount = await accountsService.createAccount(req)
+    res.json(newAccount)
 })
 
 router.get('/:id',(req,res) => {

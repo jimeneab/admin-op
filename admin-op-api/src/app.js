@@ -16,6 +16,7 @@ app.get('/api', cors(corsOptions), (req,res) => {
     res.json('Poyecto de control de operaciones')
 })
 
+app.use('/customers', require('./routes/customers'))
 app.use('/auth', require('./routes/auth'))
 app.use('/teams', require('./routes/teams'))
 app.use('/accounts', require('./routes/accounts'))

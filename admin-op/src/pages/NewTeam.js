@@ -11,15 +11,24 @@ function NewTeam(){
         getusers()
     },[])
 
-    function getusers(){
+    function getusers(e){
         axios.get('http://localhost:3001/users')
         .then(res => {
             setUsers(res.data)
         })
     }
 
-    console.log(newTeam)
-    console.log(selectedUsers)
+    function createNewTeam(e){
+        e.preventDefault()
+        axios.post('http://localhost:3001/teams/', newTeam)
+        .then(res => {
+            if(!res.error){
+                alert(`Equipo ${res.data.name} creado!`)
+                setSelectedUsers([])
+                setNewTeam({ name : '', users: [] })
+            }
+        })
+    }
 
     return(
         <section className='grid-three-columns main-content'>
@@ -38,11 +47,20 @@ function NewTeam(){
                                 )
                             })}
                         </select>
-                        <button className='btn-main'>Crear equipo</button>
+                        <button className='btn-main' onClick={createNewTeam}>Crear equipo</button>
                     </fieldset>
                 </form>
             </div>
-            <div></div>
+            <div className='center-content vertical-elements'>
+                {selectedUsers.map(item=>{
+                    return(
+                        <div className='grid-two-columns'>
+                            <p className='el-mg'>{item}</p>
+                            <p> X </p>
+                        </div>
+                    )
+                })}
+            </div>
         </section>
     )
 
@@ -54,7 +72,8 @@ function NewTeam(){
      function handleSelectValues(e){
         let value = e.target.value
         if(value == '') return
-        if(value in selectedUsers) return
+        let repeateValue = selectedUsers.includes(value)
+        if( repeateValue ) return
         selectedUsers.push(value)
         setNewTeam({...newTeam, ['users']: selectedUsers })
     }

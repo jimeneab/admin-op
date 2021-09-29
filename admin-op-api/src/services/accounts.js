@@ -8,7 +8,7 @@ module.exports = {
     },
 
     async createAccount(data){
-        let { name, customerId, leaderId, teamId } = data
+        let { name, customerId, leaderId, teamId } = data.body
         let newAccount = await accounts.create({
             name,
             customerId,

@@ -3,8 +3,8 @@ const router = express.Router()
 
 const customersService = require('../services/customers')
 
-router.get('./', async (req,res) => {
-    let allCustomers = customersService.getAll()
+router.get('/', async (req,res) => {
+    let allCustomers = await customersService.getAll()
     res.json(allCustomers)
 })
 

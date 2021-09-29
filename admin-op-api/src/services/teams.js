@@ -7,7 +7,7 @@ module.exports = {
     },
 
     async create(data){
-        let { name, users } = data
+        let { name, users } = data.body
         let newTeam = teams.create({
             name,
             users

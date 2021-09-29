@@ -2,8 +2,13 @@ const customers = require('../models/customers')
 
 module.exports = {
 
+    async getAll(){
+        let allUsers = await customers.find()
+        return allUsers
+    },
+
     async create(data){
-        let { name } = data
+        let { name } = data.body
         let newCustomer = customers.create({ name })
         return newCustomer
     },
@@ -14,10 +19,6 @@ module.exports = {
         return customer
     },
 
-    async getAll(){
-        let allUsers = await customers.find()
-        return allUsers
-    },
     async update(data){
         let id = data.params.id
         let updatedcustomer = await customers.findByIdAndUpdate(id)
