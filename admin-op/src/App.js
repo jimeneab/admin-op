@@ -11,13 +11,14 @@ import Profile from './pages/Profile';
 import Users from './pages/Users';
 import Accounts from './pages/Accounts';
 import Teams from './pages/Teams';
+import UserContext from './contexts/userContext';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <section className='main-content'>
-        <Teams/>
+        <Login/>
       </section>
       <Footer/>
     </div>
