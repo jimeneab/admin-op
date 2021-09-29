@@ -3,9 +3,9 @@ const router = express.Router()
 
 const accountsService = require('../services/accounts')
 
-router.get('/', (req, res) => {
-  let accounts = accountsService.getAll()
-    res.json(accounts)
+router.get('/', async (req, res) => {
+  let allAccounts = await accountsService.getAll()
+  res.json(allAccounts)
 })
 
 router.post('/', async (req, res) => {
@@ -23,9 +23,10 @@ router.put('/:id', (req,res) => {
     res.json(accountsService.updateAccount(id))
 })
 
-router.delete('/:id', (req,res) => {
-    let id= req.params
-    res.json(accountsService.deleteAccount(id))
+router.delete('/:id', async (req,res) => {
+    let id= req.params.id
+    let deletedAccount = await accountsService.deleteAccount(id)
+    res.json(deletedAccount)
 })
 
 module.exports = router;

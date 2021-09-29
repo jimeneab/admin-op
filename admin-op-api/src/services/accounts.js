@@ -36,8 +36,7 @@ module.exports = {
         return updatedAccount
     },
 
-    async deleteAccount(data){
-        let id = data.params.id
+    async deleteAccount(id){
         let deletedAccount = await accounts.findByIdAndDelete(id)
         return deletedAccount
     }

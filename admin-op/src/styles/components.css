@@ -12,6 +12,15 @@
       grid-template-columns: 1fr 1fr;
 }
 
+.center-horizontal-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .center-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,5 +91,33 @@
   height: 3rem;
   color: var(--blanco);
   background-color: var(--alterno);
+}
+
+.btn-delete {
+  border-radius: .5rem;
+  border: none;
+  height: 3rem;
+  color: var(--blanco);
+  background-color: #801111;
+  cursor: pointer;
+}
+
+.card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.simple-card {
+  width: 20rem;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--alterno);
+  border-radius: 2rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 /*# sourceMappingURL=components.css.map */

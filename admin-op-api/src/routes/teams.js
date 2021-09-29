@@ -24,7 +24,7 @@ router.put('/:id', async (req,res) => {
 })
 
 router.delete('/:id', async (req,res) => {
-    let deletedTeam = teamsServices.delete(req)
+    let deletedTeam = await teamsServices.delete(req)
     res.json(deletedTeam)
 })
 

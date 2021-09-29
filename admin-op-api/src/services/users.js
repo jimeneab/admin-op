@@ -14,12 +14,14 @@ module.exports = {
 
     async updateUser(data){
         let id = data.params.id
-        let{ name, email, role } = data
-        let updatedUser = await users.findByIdAndUpdate(id,{
-            name,
-            email,
-            role
-        })
+        let{ name, english, technologies, cv } = data.body
+        let options = {
+            ...name && { name },
+            ...english && { english },
+            ...technologies && { technologies },
+            ...cv && { cv }
+        }
+        let updatedUser = await users.findByIdAndUpdate(id, options)
         return updatedUser
     },
 

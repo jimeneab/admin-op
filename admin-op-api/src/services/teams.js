@@ -21,15 +21,15 @@ module.exports = {
         return updatedTeam
     },
 
-    getById(data){
+    async getById(data){
         let id = data.params.id
-        let team = teams.findById(id)
+        let team = await teams.findById(id)
         return team
     },
 
-    delete(data){
+    async delete(data){
         let id = data.params.id
-        let deletedTeam = teams.findByIdAndDelete(id)
+        let deletedTeam = await teams.findByIdAndDelete(id)
         return deletedTeam
     }
 }

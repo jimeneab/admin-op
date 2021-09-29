@@ -7,13 +7,17 @@ import Singup from './pages/Singup';
 import NewAccount from './pages/NewAccount';
 import NewTeam from './pages/NewTeam';
 import NewCustomer from './pages/NewCustomer'
+import Profile from './pages/Profile';
+import Users from './pages/Users';
+import Accounts from './pages/Accounts';
+import Teams from './pages/Teams';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <section className='content'>
-        <NewAccount/>
+      <section className='main-content'>
+        <Teams/>
       </section>
       <Footer/>
     </div>

@@ -2,11 +2,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  
+
 .grid-two-columns{
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
+.center-horizontal-container{
+    display: flex;
+    justify-content: center;
+}  
 
 .center-content{
     display: flex;
@@ -42,10 +47,6 @@
     margin-bottom: 2rem;
 }
 
-.simple-card{
-    border: 1px solid green;
-}
-
 .vertical-elements{
     display: flex;
     flex-direction: column;
@@ -66,4 +67,27 @@
     height: 3rem;
     color: var(--blanco);
     background-color: var(--alterno);
+}
+
+.btn-delete{
+    border-radius: .5rem;
+    border: none;
+    height: 3rem;
+    color: var(--blanco);
+    background-color: #801111;
+    cursor: pointer;
+}
+
+.card-container{
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+}
+.simple-card{
+    width: 20rem;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--alterno);
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
