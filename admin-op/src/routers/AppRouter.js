@@ -12,6 +12,8 @@ import NewTeam from "../pages/NewTeam"
 import Profile from "../pages/Profile"
 import Home from "../pages/Home"
 import NotFound from "../pages/NotFound";
+import PrivateRoute from "./PivateRoute";
+import Login from "../pages/Login"
 
 export default function AppRouter(){
     return(
@@ -19,8 +21,9 @@ export default function AppRouter(){
             <NavbarLogged/>
             <Switch>
                 <Route  exact path='/accounts' component={Accounts}/>
+                <Route  exact path='/login' component={Login}/>
                 <Route  exact path='/teams' component={Teams}/>
-                <Route  exact path='/users' component={Users}/>
+                <PrivateRoute  exact path='/users' component={Users}/>
                 <Route  exact path='/singup' component={Singup}/>
                 <Route  exact path='/profile' component={Profile}/>
                 <Route  exact path='/new-account' component={NewAccount}/>

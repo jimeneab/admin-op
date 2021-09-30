@@ -15,6 +15,7 @@ function NavbarLogged(){
                     <NavLink activeClassName='active' exact to="/profile"><li>Perfil</li></NavLink>
                     <NavLink activeClassName='active' exact to="/users"><li>Usuarios</li></NavLink>
                     <NavLink activeClassName='active' exact to="/teams"><li>Equipos</li></NavLink>
+                    <button className='btn-main'>Cerrar Sesión</button>
                 </ul>
             </div>
         </nav>
