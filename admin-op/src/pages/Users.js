@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const axios = require('axios')
 
@@ -43,6 +44,11 @@ export default function Users(){
                         )
                     })}
                 </div>
+            </div>
+            <div className='subtitle-section'>
+                <Link to='/singup'>
+                    <button className='btn-main'>+ Crear nuevo usuario</button>
+                </Link>
             </div>
         </div>
     )

@@ -19,8 +19,6 @@ function Login(){
         })
     }
 
-    console.log(accessData)
-
     return(
         <section className='grid-two-columns'>
             <div>

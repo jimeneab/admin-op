@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const axios = require('axios')
 
@@ -15,8 +16,6 @@ export default function Teams(){
             setTeams(res.data)
         })
     }
-
-    console.log(teams)
 
     return(
         <div className='content main--content'>
@@ -44,6 +43,11 @@ export default function Teams(){
                         )
                     })}
                 </div>
+            </div>
+            <div className='subtitle-section'>
+                <Link to='/new-team'>
+                    <button className='btn-main'>+ Crear nuevo equipo</button>
+                </Link>
             </div>
         </div>
     )

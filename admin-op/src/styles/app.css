@@ -105,4 +105,18 @@ form select {
   height: 2.5rem;
   border: none;
 }
+
+.nav-logged {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav-logged li {
+  padding: 1rem;
+  font-size: 2rem;
+  color: var(--blanco);
+}
 /*# sourceMappingURL=app.css.map */
