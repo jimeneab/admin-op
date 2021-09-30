@@ -1,21 +1,26 @@
 import React, { useState } from 'react'
 import {ReactComponent as ReactLogo} from '../img/img-1.svg';
+import useAuth from '../Auth/useAuth'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const axios = require('axios')
 
 function Login(){
+    const history = useHistory()
     let [accessData, setAccessData] = useState({
         email:'',
         password:''
     })
+    const auth = useAuth()
 
     function getToken(e){
         e.preventDefault()
         axios.post('http://localhost:3001/auth/singin', accessData )
         .then(res => {
             let token = res.data.data.token
-            console.log(token)
             window.localStorage.setItem('access_token', token)
+            auth.setUser(token)
+            history.push("/")
         })
     }
 

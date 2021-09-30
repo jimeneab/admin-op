@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink, Link} from 'react-router-dom'
+import useAuth from "../Auth/useAuth";
 
 function NavbarLogged(){
+
+    const auth = useAuth()
+
     return(
         <nav className='navbar grid-two-columns'>
             <div>
@@ -15,7 +19,7 @@ function NavbarLogged(){
                     <NavLink activeClassName='active' exact to="/profile"><li>Perfil</li></NavLink>
                     <NavLink activeClassName='active' exact to="/users"><li>Usuarios</li></NavLink>
                     <NavLink activeClassName='active' exact to="/teams"><li>Equipos</li></NavLink>
-                    <button className='btn-main'>Cerrar Sesión</button>
+                    <button className='btn-main' onClick={auth.logout}>Cerrar Sesión</button>
                 </ul>
             </div>
         </nav>
