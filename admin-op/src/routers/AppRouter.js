@@ -14,22 +14,28 @@ import Home from "../pages/Home"
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PivateRoute";
 import Login from "../pages/Login"
+import Customers from "../pages/Customers";
+import useAuth from "../Auth/useAuth";
 
 export default function AppRouter(){
+
+    const auth = useAuth()
+
     return(
         <Router>
-            <NavbarLogged/>
+           <NavbarLogged/>
             <Switch>
-                <Route  exact path='/accounts' component={Accounts}/>
+                <PrivateRoute  exact path='/accounts' component={Accounts}/>
+                <PrivateRoute  exact path='/customers' component={Customers}/>
                 <Route  exact path='/login' component={Login}/>
-                <Route  exact path='/teams' component={Teams}/>
+                <PrivateRoute  exact path='/teams' component={Teams}/>
                 <PrivateRoute  exact path='/users' component={Users}/>
-                <Route  exact path='/singup' component={Singup}/>
-                <Route  exact path='/profile' component={Profile}/>
-                <Route  exact path='/new-account' component={NewAccount}/>
-                <Route  exact path='/new-customer' component={NewCustomer}/>
-                <Route  exact path='/new-team' component={NewTeam}/>
-                <Route  exact path='/' component={Home}/>
+                <PrivateRoute  exact path='/singup' component={Singup}/>
+                <PrivateRoute  exact path='/profile' component={Profile}/>
+                <PrivateRoute  exact path='/new-account' component={NewAccount}/>
+                <PrivateRoute exact path='/new-customer' component={NewCustomer}/>
+                <PrivateRoute  exact path='/new-team' component={NewTeam}/>
+                <PrivateRoute  exact path='/' component={Home}/>
                 <Route  path='*' component={NotFound}/>
             </Switch>
             <Footer/>

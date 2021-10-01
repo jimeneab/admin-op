@@ -19,6 +19,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 60rem;
 }
 
 .center-content {
@@ -91,6 +92,7 @@
   height: 3rem;
   color: var(--blanco);
   background-color: var(--alterno);
+  cursor: pointer;
 }
 
 .btn-delete {
@@ -113,6 +115,7 @@
 
 .simple-card {
   width: 20rem;
+  height: 17em;
   margin: 1rem;
   padding: 1rem;
   border: 1px solid var(--alterno);

@@ -16,7 +16,6 @@ function NewCustomer(){
         })
     }
 
-    console.log(newCustomer)
     return(
         <section className='grid-three-columns main-content'>
             <div></div>
