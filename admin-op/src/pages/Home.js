@@ -1,5 +1,5 @@
 import React from 'react'
-import {ReactComponent as ReactLogo} from '../img/img-1.svg';
+import { ReactComponent as ReactLogo } from '../img/img-1.svg';
 
 function Home(){
 
